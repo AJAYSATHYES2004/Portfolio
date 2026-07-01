@@ -4,9 +4,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session, select, func
 from typing import Optional
 
-from config import settings
-from database import init_db, get_session
-from models import Enquiry, Stat
+from api.config import settings
+from api.database import init_db, get_session
+from api.models import Enquiry, Stat
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

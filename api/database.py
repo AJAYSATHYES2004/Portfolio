@@ -1,7 +1,7 @@
 import logging
 from sqlalchemy import create_engine, text
 from sqlmodel import SQLModel, Session
-from config import settings
+from api.config import settings
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -44,7 +44,7 @@ def init_db():
             raise e
 
     # Create tables
-    from models import Enquiry, Stat  # Ensure models are imported
+    from api.models import Enquiry, Stat  # Ensure models are imported
     SQLModel.metadata.create_all(engine)
     
     # Initialize download counter stat if not exists
