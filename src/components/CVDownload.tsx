@@ -8,7 +8,8 @@ export default function CVDownload() {
   const [downloadCount, setDownloadCount] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/stats")
+    const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    fetch(`${apiBase}/api/stats`)
       .then((res) => {
         if (res.ok) return res.json();
         throw new Error("Failed to fetch stats");
@@ -23,7 +24,8 @@ export default function CVDownload() {
 
   const handleDownload = async () => {
     try {
-      const res = await fetch("http://localhost:8000/api/download", {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const res = await fetch(`${apiBase}/api/download`, {
         method: "POST",
       });
       if (res.ok) {

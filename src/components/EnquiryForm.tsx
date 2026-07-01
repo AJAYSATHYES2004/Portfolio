@@ -66,7 +66,8 @@ export default function EnquiryForm() {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:8000/api/enquiry", {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      const res = await fetch(`${apiBase}/api/enquiry`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
