@@ -1,6 +1,7 @@
 import os
 import urllib.parse
 from pathlib import Path
+from typing import Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -12,7 +13,7 @@ class Settings(BaseSettings):
     MYSQL_PASSWORD: str = "Ajay@2004"
     MYSQL_DATABASE: str = "ajay_portfolio"
     
-    DATABASE_URL: str | None = None
+    DATABASE_URL: Optional[str] = None
 
     SMTP_HOST: str = "smtp.gmail.com"
     SMTP_PORT: int = 587
